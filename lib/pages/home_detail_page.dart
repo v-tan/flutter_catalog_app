@@ -13,11 +13,11 @@ class HomeDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: MyTheme.creamColor,
+        backgroundColor: Colors.transparent,
       ),
-      backgroundColor: MyTheme.creamColor,
+      backgroundColor: context.canvasColor,
       bottomNavigationBar: Container(
-        color: Colors.white,
+        color: context.cardColor,
         child: ButtonBar(
           alignment: MainAxisAlignment.spaceBetween,
           buttonPadding: EdgeInsets.zero,
@@ -25,13 +25,13 @@ class HomeDetailsPage extends StatelessWidget {
             "\$${catalog.price}".text.bold.xl4.red800.make(),
             ElevatedButton(
               onPressed: () {},
-              child: "Buy".text.make(),
+              child: "Add to Cart".text.make(),
               style: ButtonStyle(
                 backgroundColor:
-                    MaterialStateProperty.all(MyTheme.darkBluishColor),
+                    MaterialStateProperty.all(context.theme.buttonColor),
                 shape: MaterialStateProperty.all(StadiumBorder()),
               ),
-            ).wh(100, 50),
+            ).wh(120, 50),
           ],
         ).p32(),
       ),
@@ -50,18 +50,23 @@ class HomeDetailsPage extends StatelessWidget {
                 edge: VxEdge.TOP,
                 arcType: VxArcType.CONVEY,
                 child: Container(
-                  color: Colors.white,
+                  color: context.cardColor,
                   width: context.screenWidth,
                   child: Column(
                     children: [
                       catalog.name.text.xl4
-                          .color(MyTheme.darkBluishColor)
+                          .color(context.accentColor)
                           .bold
                           .make(),
                       catalog.desc.text.xl
                           .textStyle(context.captionStyle)
                           .make(),
                       10.heightBox,
+                      "Amet et gubergren eirmod elitr dolor sed diam stet, rebum dolor eirmod clita dolore duo, magna ea gubergren et accusam takimata justo et ipsum sed. Tempor ut sea dolore accusam erat sed gubergren tempor, eos et vero diam est consetetur kasd, sed amet sit dolores et, clita sed et ut."
+                          .text
+                          .textStyle(context.captionStyle)
+                          .make()
+                          .p16(),
                     ],
                   ).py64(),
                 ),
