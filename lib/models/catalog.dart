@@ -93,7 +93,7 @@ class Item {
 }
 
 class CatalogModel {
-  static var items = [];
+  static List<Item> items;
 }
 
 final products = [];
