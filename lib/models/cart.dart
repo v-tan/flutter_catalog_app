@@ -1,6 +1,12 @@
 import 'package:flutter_catalog/models/catalog.dart';
 
 class CartModel {
+  static final cartModel = CartModel._internal();
+
+  CartModel._internal();
+
+  factory CartModel() => cartModel;
+
   CatalogModel _catalog;
 
   //collection of IDs: store ids of each item
@@ -15,7 +21,7 @@ class CartModel {
   }
 
   //Get items in the cart
-  List<Item> get items => _itemIds.map((id) => CatalogModel.items[id]);
+  List<Item> get items => _itemIds.map((id) => CatalogModel.items[id]).toList();
 
   num get totalPrice =>
       items.fold(0, (total, current) => total + current.price);
